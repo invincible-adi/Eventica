@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if not request.session.user %}
+<script>
+    alert("You have to login First...")
+    location.href='user/signin/'
+</script>
+{% endif %}
+<div class="fs-2 text-center">
+    My <b class="txt-mycolor">Booking</b>
+</div>
+<div class="row">
+    <div class="col-sm-8 mx-auto mt-4">
+        <!-- card -->
+        {% for i in mybooking %}
+                    <div class="card mb-3">
+  <div class="row g-0">
+<!--    <div class="col-md-4">-->
+<!--      <img src="/{{i.event_picture}}" style="max-height:150px;" class="img-fluid rounded-start" alt="...">-->
+<!--    </div>-->
+    <div class="col-md-12 mx-0">
+      <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Event Picture :</th>
+                <th>Ticket Name :</th>
+                <th>Event Name :</th>
+                <th>Speaker Detail :</th>
+                <th>Booking Date :</th>
+                <th>Event Date :</th>
+            </tr>
+
+            <tr>
+                <td><img src="/{{i.event_picture}}" style="height:100px; width:100px;" class="img-fluid rounded-start" alt="..."></td>
+                <td>EMS100{{i.id}}</td>
+                <td>{{i.event_name}}</td>
+                <td>{{i.speaker_name}}</td>
+                <td>{{i.booking_date}}</td>
+                <td>{{i.event_date}}</td>
+            </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+        <!-- endcard -->
+    </div>
+</div>
+{% endblock %}
