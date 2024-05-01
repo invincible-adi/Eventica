@@ -1,5 +1,5 @@
 # Eventica
 
-To See code got the my "projects" branch.
+To See code go to the my "projects" branch.
 
 thank you.
